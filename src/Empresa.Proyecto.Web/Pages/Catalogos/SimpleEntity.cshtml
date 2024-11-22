@@ -2,11 +2,9 @@
 @model Empresa.Proyecto.Web.Pages.Catalogos.SimpleEntityModel
 @{
     ViewData["Title"] = "Catalogo Simple Entity";
-    var culture = System.Globalization.CultureInfo.CurrentCulture.ToString();
 }
 
 @using Empresa.Proyecto.Core.Entities;
-
 
 <h1>@ViewData["Title"]</h1>
 
@@ -21,28 +19,52 @@
                 <th>Modificado</th>
             </tr>
         </thead>
-      
     </table>
-
 </div>
 
-@section Scripts{
+<form id="antiForgeryForm">
+    @Html.AntiForgeryToken()
+</form>
+
+@section Scripts {
     <script type="text/javascript">
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('#entities').DataTable({
                 "ajax": {
                     url: "?handler=Catalog",
                     type: 'POST',
-                    headers: { 'RequestVerificationToken': $('@Html.AntiForgeryToken()').val() }
+                    headers: {
+                        'RequestVerificationToken': $('#antiForgeryForm input[name="__RequestVerificationToken"]').val()
+                    }
                 },
-                columns:[
-                    { data: 'Name'},
+                "columns": [
+                    { data: 'Id' },
+                    { data: 'Name' },
                     { data: 'Value' },
-                    { data: 'Created' },
-                    { data: 'Modified'}
+                    {
+                        data: 'Created',
+                        render: function (data) {
+                            return formatDate(data);
+                        }
+                    },
+                    {
+                        data: 'Modified',
+                        render: function (data) {
+                            return formatDate(data);
+                        }
+                    }
                 ]
             });
-        })
+
+            // Función para formatear fechas en formato dd/MM/yyyy
+            function formatDate(date) {
+                if (!date) return ''; // Si no hay fecha, retorna vacío
+                const d = new Date(date);
+                const day = String(d.getDate()).padStart(2, '0');
+                const month = String(d.getMonth() + 1).padStart(2, '0'); // Meses empiezan en 0
+                const year = d.getFullYear();
+                return `${day}/${month}/${year}`;
+            }
+        });
     </script>
 }
-

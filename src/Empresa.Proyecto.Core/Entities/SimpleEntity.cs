@@ -16,8 +16,11 @@ namespace Empresa.Proyecto.Core.Entities
         //En C#8 es importante marcar los strings nulables para saber si son opcionales 
         // y si se permite nulo o siempre deberia traer valor
 
+        public int Id { get; set; }
         public string Name { get; set; } = null!;
-        public string? Value { get; set; } 
-        
+        public string? Value { get; set; }
+        public DateTime Created { get; set; }
+        public DateTime Modified { get; set; }
+
     }
 }
