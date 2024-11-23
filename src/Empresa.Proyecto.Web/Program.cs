@@ -19,6 +19,8 @@ builder.Services.AddDbContext<MyProjectContext>(db =>
     db.UseSqlServer(builder.Configuration.GetConnectionString("DBConnection"))
     );
 
+
+
 builder.Services.AddScoped<IAsyncRepository<SimpleEntity>, EFRepository<SimpleEntity>>();
 builder.Services.AddScoped<IAsyncRepository<ComplexEntity>, EFRepository<ComplexEntity>>();
 
