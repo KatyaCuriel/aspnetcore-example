@@ -4,6 +4,7 @@ using Empresa.Proyecto.Infra.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Empresa.Proyecto.Infra.Migrations
 {
     [DbContext(typeof(MyProjectContext))]
-    partial class MyProjectContextModelSnapshot : ModelSnapshot
+    [Migration("20241124055540_OptionsEntity")]
+    partial class OptionsEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -90,24 +92,24 @@ namespace Empresa.Proyecto.Infra.Migrations
                         new
                         {
                             Id = 1,
-                            Created = new DateTime(2024, 11, 24, 5, 59, 22, 408, DateTimeKind.Utc).AddTicks(607),
-                            Modified = new DateTime(2024, 11, 24, 5, 59, 22, 408, DateTimeKind.Utc).AddTicks(610),
+                            Created = new DateTime(2024, 11, 24, 5, 55, 39, 863, DateTimeKind.Utc).AddTicks(6837),
+                            Modified = new DateTime(2024, 11, 24, 5, 55, 39, 863, DateTimeKind.Utc).AddTicks(6838),
                             Name = "Nuevo",
                             Value = "Valor inicial 1"
                         },
                         new
                         {
                             Id = 2,
-                            Created = new DateTime(2024, 11, 24, 5, 59, 22, 408, DateTimeKind.Utc).AddTicks(613),
-                            Modified = new DateTime(2024, 11, 24, 5, 59, 22, 408, DateTimeKind.Utc).AddTicks(614),
+                            Created = new DateTime(2024, 11, 24, 5, 55, 39, 863, DateTimeKind.Utc).AddTicks(6840),
+                            Modified = new DateTime(2024, 11, 24, 5, 55, 39, 863, DateTimeKind.Utc).AddTicks(6841),
                             Name = "Existente",
                             Value = "Valor inicial 2"
                         },
                         new
                         {
                             Id = 3,
-                            Created = new DateTime(2024, 11, 24, 5, 59, 22, 408, DateTimeKind.Utc).AddTicks(616),
-                            Modified = new DateTime(2024, 11, 24, 5, 59, 22, 408, DateTimeKind.Utc).AddTicks(617),
+                            Created = new DateTime(2024, 11, 24, 5, 55, 39, 863, DateTimeKind.Utc).AddTicks(6843),
+                            Modified = new DateTime(2024, 11, 24, 5, 55, 39, 863, DateTimeKind.Utc).AddTicks(6844),
                             Name = "Reconstruido",
                             Value = "Valor inicial 3"
                         });

@@ -7,6 +7,8 @@
     public class ComplexEntity:BaseEntity
     {
         public string Title { get; set; } = null!;
+
+        public string Name { get; set; }
         public string Description { get; set; } = null!;
         public SimpleEntity CatalogExample { get; set; } = null!;
         public decimal Amount { get; set; }
