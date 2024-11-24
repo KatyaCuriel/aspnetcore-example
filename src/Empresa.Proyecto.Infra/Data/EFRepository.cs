@@ -25,7 +25,12 @@ namespace Empresa.Proyecto.Infra.Data
         {
             _dbContext = dbContext;
         }
-
+        public async Task<List<SimpleEntity>> GetAllSimpleEntitiesAsync()
+        {
+            return await _dbContext.SimpleEntity
+                .OrderBy(e => e.Name) // Ordenar aquí
+                .ToListAsync();
+        }
         /// <summary>
         /// Obtiene un elemento por su id
         /// </summary>
